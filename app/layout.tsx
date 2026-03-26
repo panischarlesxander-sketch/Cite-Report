@@ -6,7 +6,7 @@ import { AuthProvider } from '@/lib/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CIT Report Dashboard',
+  title: 'CITE WFH REPORT',
   description: 'Multi-role dashboard system for Dean, Department Chair, Faculty, and Admin',
   icons: {
     icon: '/CITE.png',

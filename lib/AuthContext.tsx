@@ -45,12 +45,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setUser(parsedUser);
           setIsAuthenticated(true);
           // Perform a silent background refresh; do NOT logout on failure
-          supabase
-            .from('user')
-            .select('id, first_name, last_name, email, role, position')
-            .eq('id', parsedUser.id)
-            .single()
-            .then(({ data, error }) => {
+          (async () => {
+            try {
+              const { data, error } = await supabase
+                .from('user')
+                .select('id, first_name, last_name, email, role, position')
+                .eq('id', parsedUser.id)
+                .single();
+                
               if (!error && data) {
                 const updatedUser: User = {
                   id: data.id.toString(),
@@ -62,10 +64,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 setUser(updatedUser);
                 localStorage.setItem('user', JSON.stringify(updatedUser));
               }
-            })
-            .catch(() => {
-              // ignore errors, keep current session
-            });
+            } catch (err) {
+              console.warn('Silent refresh failed:', err);
+            }
+          })();
         } else {
           // No stored session
           setUser(null);

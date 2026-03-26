@@ -25,7 +25,7 @@ export default function RegisterPage() {
   const [focusedField, setFocusedField] = useState('');
   const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -177,21 +177,6 @@ export default function RegisterPage() {
                   placeholder="Instructor I" className={inputClass('position')} required />
               </div>
             </div>
-
-          <div className="space-y-1.5">
-            <label className="text-sm font-semibold text-gray-700 block">System Role</label>
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none bg-white appearance-none cursor-pointer"
-            >
-              <option value="faculty">Faculty</option>
-              <option value="chair">Department Chair</option>
-              <option value="dean">Dean</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
 
             <div className="space-y-1.5">
               <label className="text-sm font-semibold text-gray-700 block">Email Address</label>
