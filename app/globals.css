@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-gray-50;
+  }
+}
+
+@layer components {
+  /* Clean vibrant white card */
+  .card-soft {
+    @apply bg-white rounded-2xl border border-gray-200 shadow-sm;
+  }
+
+  /* Vibrant gradient primary button */
+  .btn-primary-soft {
+    @apply inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-xl transition-all duration-200 active:scale-[0.97] shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30;
+  }
+
+  /* Outline secondary button */
+  .btn-soft {
+    @apply inline-flex items-center justify-center bg-white border-2 border-gray-200 text-gray-700 hover:border-orange-300 hover:text-orange-700 hover:bg-orange-50/40 font-semibold rounded-xl transition-all duration-200 active:scale-[0.97];
+  }
+
+  /* Clean modern input */
+  .input-soft {
+    @apply w-full px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:bg-white focus:ring-4 focus:ring-orange-500/10 transition-all duration-200;
+  }
+
+  /* Standard card */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md;
+  }
+
+  /* Standard primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-orange-500/20 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-orange-500/20 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-white border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 font-semibold rounded-xl transition-all duration-200 active:scale-[0.98];
+  }
+}

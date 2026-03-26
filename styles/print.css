@@ -1,0 +1,58 @@
+
+@media print {
+  /* --- General Print Resets --- */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all interactive elements by default */
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* Show all print-only elements */
+  .print-block {
+    display: block !important;
+  }
+  .print-flex {
+    display: flex !important;
+  }
+  .print-inline {
+    display: inline !important;
+  }
+
+  /* --- Component-Specific Styles --- */
+
+  /* Ensure borders are consistent */
+  table, th, td {
+    border-color: #000 !important;
+  }
+
+  /* Remove background from remarks boxes */
+  .remark-box-print {
+    background-color: transparent !important;
+    border: none !important;
+    font-style: normal !important;
+    padding: 0 !important;
+  }
+
+  /* Style for static text that replaces inputs */
+  .print-static-text {
+    border-bottom: 1px solid #000;
+    min-height: 1.5rem; /* Ensure line is visible */
+    padding: 0.25rem;
+    text-align: center;
+  }
+
+  /* Ensure full name and position don't get cut off */
+  .faculty-info-print {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faculty-info-print > div {
+    flex: 1;
+  }
+}
